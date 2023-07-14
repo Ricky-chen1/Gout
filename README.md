@@ -13,29 +13,31 @@
 - **[Go] (https://go.dev/)**: 最新版本  
 - **使用git拉取本仓库**
 
-### 使用Gout 
-一个最简单的例子如下“example.go”：
+### 测试Gout 
+一个最简单的例子如下“test/test.go”：
 ```go
 package main
 
 import (
-  "net/http"
+	gout "gin_demo"
+	"net/http"
 )
 
 func main() {
-  r := gout.Default()
-  r.GET("/ping", func(c *gout.Context) {
-    c.JSON(http.StatusOK, gout.H{
-      "msg": "pong",
-    })
-  })
-  r.Run(":8080") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	r := gout.Default()
+	r.GET("/ping", func(c *gout.Context) {
+		c.JSON(http.StatusOK, gout.H{
+			"msg": "pong",
+		})
+	})
+	r.Run(":8080") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }
+
 ```
 之后使用命令运行示例
 ```
 # run example.go and visit 0.0.0.0:8080/ping on browser
-$ go run example.go
+$ go run test/test.go
 ```
 
 
